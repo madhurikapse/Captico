@@ -1,0 +1,111 @@
+/* Base styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Login container styling */
+  .login-container {
+    max-width: 400px;
+    height: 500px;
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    animation: fadeIn 1s ease-out; /* Fade-in animation */
+  }
+  
+  /* Form styling */
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 500px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  input[type='email'],
+  input[type='password'],
+  input[type='submit'] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input[type='email']:focus,
+  input[type='password']:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+  
+  input[type='submit'] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    padding: 10px;
+  }
+  
+  input[type='submit']:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  input[type='submit']:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .login-container {
+        padding: 15px;
+    }
+  
+    input[type='email'],
+    input[type='password'],
+    input[type='submit'] {
+        padding: 8px;
+    }
+  
+    input[type='submit'] {
+        padding: 8px;
+        font-size: 14px;
+    }
+  }

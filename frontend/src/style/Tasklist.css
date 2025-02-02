@@ -1,0 +1,159 @@
+/* General styles for the task list container */
+#main {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(to right, #f0f4f8, #e2e8f0); /* Gradient background */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styles */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2d3748;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+/* Container for all tasks */
+#alltasksshow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Individual task display */
+#taskshow {
+    background: #ffffff; /* White background for task boxes */
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+}
+
+#taskshow:hover {
+    transform: translateY(-8px); /* Lift the task box on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+    background-color: #f7fafc; /* Slight background color change on hover */
+}
+
+#taskshow p {
+    margin: 10px 0;
+    color: #4a5568;
+}
+
+button {
+    background-color: #3182ce; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #2b6cb0; /* Darker button color on hover */
+    transform: scale(1.05); /* Slightly scale up button on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Edit form styles */
+#editForm {
+    background-color: #ffffff; /* White background for the form */
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+#editForm h2 {
+    margin-bottom: 20px;
+    color: #2d3748;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #3182ce; /* Highlight border color on focus */
+    box-shadow: 0 0 8px rgba(49, 130, 206, 0.25); /* Add shadow on focus */
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Loading state styles */
+#loading {
+    text-align: center;
+    font-size: 1.6em;
+    margin-top: 50px;
+    color: #3182ce;
+    animation: pulse 1.5s infinite; /* Add a pulse animation */
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    #alltasksshow {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #taskshow {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    input[type="text"],
+    input[type="date"],
+    textarea,
+    select {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}

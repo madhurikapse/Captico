@@ -1,8 +1,11 @@
-import express from 'express';
-import { Login, Register } from '../controller/auth.controoler.js';
+import { Router } from "express";
+import { getCurrentUser, Login, Register } from "../controller/auth.controoler.js";
 
-const router = express.Router();
+const router = Router();
 
-router.post('/register', Register);
-router.post('/login', Login);
+// router.use()
+router.post("/register",Register);
+router.post("/login", Login);
+router.get('/get-current-user', getCurrentUser)
+
 export default router;
