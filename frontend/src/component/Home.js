@@ -1,18 +1,17 @@
+import { Link } from "react-router-dom";
+import "../style/Home.css";
 
-import { useContext } from 'react';
-import { AuthContext } from '../context/auth.context';
-function Home(){
-    const {state}=useContext(AuthContext);
-
-    return(
-        
-        <div id="home">
-            
-            <h1>Welcome to Event mangement- {state?.user?.name}</h1>
-            
-            
-        </div>
-    )
-}
+const Home = () => {
+  return (
+    <div className="home-container">
+      <h1>Welcome to the Course Platform</h1>
+      <p>Explore a variety of courses and enhance your knowledge.</p>
+      <div className="buttons">
+        <Link to="/courses" className="btn">View Courses</Link>
+        <Link to="/register" className="btn btn-alt">Get Started</Link>
+      </div>
+    </div>
+  );
+};
 
 export default Home;

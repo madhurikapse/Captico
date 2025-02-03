@@ -1,9 +1,19 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const courseSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  description: { type: String, required: true },
-  instructor: { type: String, required: true },
-}, { timestamps: true });
+  name: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+});
 
-export default mongoose.model("Course", courseSchema);
+const Course = mongoose.model("Course", courseSchema);
+export default Course;
