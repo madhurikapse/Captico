@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Register from "./page/Register";
 import Login from "./page/Login";
 import PrivateRoute from "./component/PrivateRoute";
-import Courses from "./page/Course";
+import Courses from "./page/Courses";
 import Navbar from "./component/Navbar";
 import { AuthProvider } from "./context/auth.context";
 import Home from "./component/Home";
@@ -18,9 +18,6 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/courses" element={<PrivateRoute><Courses/></PrivateRoute>}/>
-        
-        <Route path="/courses" element={<Courses/>}/>
-
       </Routes>
     </AuthProvider>
   );

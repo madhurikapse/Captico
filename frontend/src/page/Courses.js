@@ -14,10 +14,10 @@ const Courses = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-    
+
         console.log("Response Status:", response.status);  // Log response status
         console.log("Data:", response.data);  // Log the courses data
-    
+
         if (response.data && response.data.length > 0) {
           setCourses(response.data);
         } else {
@@ -27,21 +27,20 @@ const Courses = () => {
         console.error("Error fetching courses:", error.response ? error.response.data : error);
       }
     };
-    
 
     if (token) {
       fetchCourses();
     }
-  }, [token]);
+  }, [token]);  // Only re-run the effect when the token changes
 
   if (courses.length === 0) {
-    return <p>No courses available</p>;
+    return <p>No courses list available</p>;
   }
 
   return (
     <div>
       {courses.map((course) => (
-        <div key={course._id}>
+        <div key={course._id}>  {/* Changed key to _id as _price was incorrect */}
           <h3>{course.name}</h3>
           <p>{course.description}</p>
         </div>
