@@ -1,26 +1,28 @@
-import { Routes, Route } from "react-router-dom";
-import Register from "./page/Register";
-import Login from "./page/Login";
-import PrivateRoute from "./component/PrivateRoute";
-import Courses from "./page/Courses";
-import Navbar from "./component/Navbar";
-import { AuthProvider } from "./context/auth.context";
-import Home from "./component/Home";
-import { ToastContainer } from "react-toastify";
+import logo from './logo.svg';
+import './App.css';
+import { Route, Routes } from 'react-router-dom';
 
-const App = () => {
+import Home from './components/Home';
+import Register from './components/Register';
+import Login from './components/Login';
+import Tasklist from './components/TaskList';
+import Navbar from './components/Navbar';
+import CreateEvent from './components/CreateEvents';
+function App() {
   return (
-    <AuthProvider>
-      <Navbar />
-      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} />
+    <div className="App">
+     
+      <Navbar/>
+      
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/courses" element={<PrivateRoute><Courses/></PrivateRoute>}/>
+        <Route  path='/' element={<Home/>}/>
+        <Route  path='/register' element={<Register/>}/>
+        <Route  path='/login' element={<Login/>}/>
+        <Route  path='/CreateEvent' element={<CreateEvent/>}/>
+        <Route  path='/all-tasks' element={<Tasklist/>}/>
       </Routes>
-    </AuthProvider>
+    </div>
   );
-};
+}
 
 export default App;

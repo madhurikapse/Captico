@@ -1,29 +1,36 @@
-import express from "express";
+import cookieParser from "cookie-parser";
+import morgan from "morgan";
 import cors from "cors";
-import dotenv from "dotenv";
+import express from "express";
 import mongoose from "mongoose";
-import courseRoutes from "./routes/courseRoutes.js";  // Ensure this is correct
-import authRoutes from "./routes/auth.route.js";
+import dotenv from "dotenv";
+import AllRoutes from "./routes/auth.routes.js"
+
+const app = express();
+app.use(cookieParser());
+app.use(morgan("combined"));
+app.use(
+  cors({
+    credentials: true,
+    origin: ["http://localhost:3000"],
+  })
+);
+
+
 
 dotenv.config();
-const app = express();
+app.use(express.json());
 
-app.use(cors());
-app.use(express.json());  // Ensure you use body-parser or express.json() for parsing JSON requests
+app.get("/", function (req, res) {
+  res.send("working.");
+});
 
-// Use the routes
-app.use("/api/courses", courseRoutes);  // This mounts the course routes under `/api/courses`
-app.use("/api/auth", authRoutes);  // If you have authentication routes
-
-const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI;
+app.use("/api/v1", AllRoutes);
 
 mongoose
-  .connect(MONGO_URI)
-  .then(() => {
-    console.log("✅ MongoDB Connected");
-    app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
-  })
-  .catch((error) => {
-    console.error("❌ MongoDB connection error:", error);
-  });
+  .connect(process.env.MONGODB_URL)
+  .then(() => console.log("DB connected."));
+
+app.listen(process.env.PORT_NUMBER, () => {
+  console.log(`Server is running on port ${process.env.PORT_NUMBER}.`);
+});
