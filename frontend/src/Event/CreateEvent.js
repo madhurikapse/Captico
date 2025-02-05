@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import "./events.css"
 import Api from '../axiosconfig';
+import "../style/CreateEvent.css"
 function CreateEvent() {
     const[title,setTitle]=useState('')
     const [description, setDescription] = useState('');
@@ -24,7 +25,7 @@ function CreateEvent() {
       <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Event Description" required />
       <input type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} required />
       <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Event Location" required />
-      <button type="submit">Create Event</button>
+      <button type="submit">Create Course</button>
     </form>
   
     </div>

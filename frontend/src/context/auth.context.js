@@ -25,7 +25,7 @@ function MyContextProvider({children}){
 
     async function getCurrentUser() {
         try {
-          const response = await Api.get("/auth/get-current-user");
+          const response = await Api.get("/get-current-user");
           if (response.data.success) {
             dispatch({ type: "LOGIN", payload: response.data.userData });
           }

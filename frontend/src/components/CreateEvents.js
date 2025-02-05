@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Api from "../axiosconfig";
 import toast from "react-hot-toast";
+import "../style/CreateEvent.css"
 function CreateEvent() {
     const navigate = useNavigate();
     const [taskData, setTaskData] = useState({
@@ -19,7 +20,7 @@ function CreateEvent() {
     useEffect(() => {
         async function fetchUsers() {
             try {
-                const response = await Api.get("/auth/getall"); // Fetch all users
+                const response = await Api.get("/getall"); // Fetch all users
                 if (response.data.success) {
                     setUsers(response.data.users);
                 }
@@ -39,7 +40,7 @@ function CreateEvent() {
         e.preventDefault();
         try {
             if (taskData.title && taskData.description && taskData.date_time && taskData.location && taskData.image_url) {
-                const response = await Api.post("/task/CreateTask", taskData); // Send taskData directly
+                const response = await Api.post("/CreateTask", taskData); // Send taskData directly
                 if (response.data.success) {
                     setTaskData({
                         title: '',
@@ -74,7 +75,7 @@ function CreateEvent() {
     return (
         <div id="ar-main">
             <form onSubmit={handleSubmit}>
-                <h1>Create Event</h1>
+                <h1>Create Course</h1>
                 {errors.length > 0 && (
                     <div className="error-messages">
                         {errors.map((error, index) => (

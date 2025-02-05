@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import Api from '../axiosconfig';
-
+import "../style/login.css"
 const Login = () => {
 const {state,dispatch}=useContext(AuthContext);
 
@@ -21,7 +21,7 @@ const {state,dispatch}=useContext(AuthContext);
         e.preventDefault();
         try {
           if (userData.email && userData.password) {
-              const response = await Api.post("/auth/login" , {userData});
+              const response = await Api.post("/login",{userData});
             if (response.data.success) {
               dispatch({ type: "LOGIN", payload: response.data.userData });
               setUserData({

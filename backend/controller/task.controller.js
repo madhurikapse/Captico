@@ -40,6 +40,7 @@ export const Register = async (req, res) => {
 
   export const Login = async (req, res) => {
     try {
+      console.log(43)
       const { email, password } = req.body?.userData;
       if (!email || !password) {
         return res.json({ success: false, error: "All fields are required." });
@@ -179,16 +180,21 @@ export const Register = async (req, res) => {
 
   export const UpdateTask = async (req, res) => {
     try {
-        const { id } = req.params;
-        const { title, description, date_time, loaction, image_url} = req.body.taskData;
+        console.log("Received Data:", req.body); // Log the received data
 
-        if (!title || !description || !date_time || !image_url || !loaction) {
+        const { id } = req.params;
+        const { title, description, date_time, location, image_url } = req.body.taskData;
+
+        if (!title || !description || !date_time || !image_url || !location) {
+            console.log("Missing fields:", { title, description, date_time, location, image_url });
             return res.json({ success: false, error: "All fields are required." });
         }
 
-        const updatedTask = await Task.findByIdAndUpdate(id, {
-            title, description,date_time, loaction, image_url
-        }, { new: true });
+        const updatedTask = await Task.findByIdAndUpdate(
+            id,
+            { title, description, date_time, location, image_url },
+            { new: true }
+        );
 
         if (!updatedTask) {
             return res.json({ success: false, error: "Task not found." });
@@ -196,7 +202,7 @@ export const Register = async (req, res) => {
 
         return res.json({ success: true, message: "Task updated successfully.", task: updatedTask });
     } catch (error) {
-        console.log(error, "error");
+        console.log("Error updating task:", error);
         return res.json({ success: false, error });
     }
 };
