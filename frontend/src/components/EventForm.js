@@ -31,7 +31,7 @@ function EventForm() {
       <input type="datetime-local" name="date_time" value={event.date_time} onChange={handleChange} />
       <input type="text" name="location" value={event.location} onChange={handleChange} placeholder="Location" />
       <input type="text" name="image_url" value={event.image_url} onChange={handleChange} placeholder="Image URL" />
-      <button type="submit">Create Event</button>
+      <button type="submit">Create Course</button>
     </form>
   );
 }

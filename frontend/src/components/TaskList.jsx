@@ -116,7 +116,7 @@ function Tasklist() {
 
     return (
         <div id="main">
-            <h1>All Events</h1>
+            <h1>All Course</h1>
             {loading ? (
                 <h1>Loading....</h1>
             ) : (
@@ -147,7 +147,7 @@ function Tasklist() {
 
             {taskToEdit && (
                 <div id="editForm">
-                    <h2>Edit Event</h2>
+                    <h2>Edit Course</h2>
                     <input
                         type="text"
                         name="title"

@@ -41,7 +41,7 @@ function Navbar(){
                         <div onClick={()=>router("/")}>Home</div>
                         {!state?.user && (<div onClick={()=>router("/register")}><span>Register</span></div>)}
                         <div onClick={()=>router("/CreateEvent")}>Create Course</div>
-                        {state?.user && (<div onClick={()=>router("/all-tasks")}>All Event</div>)}
+                        {state?.user && (<div onClick={()=>router("/all-tasks")}>All Course</div>)}
                         <div>{state?.user ? (<span onClick={handleLogout}>Logout</span>) : (<span onClick={()=>router("/login")}>Login</span>)}</div>
 
                     </div>
